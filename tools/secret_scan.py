@@ -21,6 +21,7 @@ What it catches, and what it does not:
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import math
 import os
@@ -98,17 +99,50 @@ def shannon_entropy(value: str) -> float:
 
 
 def iter_files(paths: list[str]) -> list[Path]:
+    self_path = Path(__file__).resolve()
+    ignore = load_ignore(paths)
     out: list[Path] = []
     for raw in paths:
         p = Path(raw)
         if p.is_file():
-            out.append(p)
+            if p.resolve() != self_path and not ignored(p, ignore):
+                out.append(p)
             continue
         for root, dirs, files in os.walk(p):
             dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
             for name in files:
-                out.append(Path(root) / name)
+                f = Path(root) / name
+                # The scanner carries the patterns it looks for, so it always
+                # matches itself. Its own file is never scanned.
+                if f.resolve() == self_path or ignored(f, ignore):
+                    continue
+                out.append(f)
     return sorted(out)
+
+
+def load_ignore(paths: list[str]) -> list[str]:
+    """Patterns from .scanignore, one per line, matched against the file path."""
+    for raw in paths:
+        root = Path(raw)
+        candidate = (root if root.is_dir() else root.parent) / ".scanignore"
+        if candidate.is_file():
+            return [
+                line.strip()
+                for line in candidate.read_text(errors="replace").splitlines()
+                if line.strip() and not line.strip().startswith("#")
+            ]
+    return []
+
+
+def ignored(path: Path, patterns: list[str]) -> bool:
+    if not patterns:
+        return False
+    text = str(path)
+    name = path.name
+    for pat in patterns:
+        if fnmatch.fnmatch(text, pat) or fnmatch.fnmatch(name, pat) or fnmatch.fnmatch(text, f"*/{pat}"):
+            return True
+    return False
 
 
 def is_texty(path: Path) -> bool:

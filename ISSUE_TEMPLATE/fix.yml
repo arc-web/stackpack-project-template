@@ -1,0 +1,25 @@
+name: Something is broken
+description: A repo, a link, a step or a file that does not work.
+title: "[Fix] "
+labels: ["fix"]
+body:
+  - type: input
+    id: what
+    attributes:
+      label: What is broken
+      description: Name the file or the step.
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened
+      description: What you did, and what you saw instead.
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Your Discord name
+    validations:
+      required: true

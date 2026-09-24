@@ -1,0 +1,18 @@
+name: Security scan
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    name: scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the files
+        uses: actions/checkout@v7
+      - name: Scan for secrets and dangerous patterns
+        run: python3 tools/secret_scan.py --path .

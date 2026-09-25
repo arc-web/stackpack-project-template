@@ -1,5 +1,10 @@
 # Project name
 
+> **ARC status (2026-09-25)**
+> Purpose: A starter layout for StackPack member repos (README skeleton, secret scanner, workflows).
+> Status: Not used: the StackPack Agent writes member repos from its own built-in copy, so this template and those repos drift apart.
+> Proposed: Merge into `arc-web/stackpack-community`, or make the StackPack Agent actually use it, waiting for a decision by Mike or Johan (see the system map in arc-web/arc-operations, `system-graph/SYSTEM_MAP.md`).
+
 One line saying what this does, in plain words.
 
 ## What it is

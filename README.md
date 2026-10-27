@@ -96,7 +96,7 @@ If a merge needs to be undone, see the rollback steps in [CONTRIBUTING.md](CONTR
 
 ## How it fits
 
-This repo is a starting point. It does not call other systems. The ARC standard that these files follow lives in the agent-config handbook: [repo-standard.md](https://github.com/arc-web/agent-config/blob/main/handbook/repo-standard.md) and [STANDARD.md](https://github.com/arc-web/agent-config/blob/main/handbook/STANDARD.md). Those files are the owners of the rules. This repo links to them and does not copy them.
+This repo is a starting point. It does not call other systems. The ARC standard that these files follow lives in the agent-config handbook: [rules for every arc-web repo](https://github.com/arc-web/agent-config/blob/main/CONTRIBUTING.md#rules-for-every-arc-web-repo) and [STANDARD.md](https://github.com/arc-web/agent-config/blob/main/handbook/STANDARD.md). Those files are the owners of the rules. This repo links to them and does not copy them.
 
 ## What to watch for
 

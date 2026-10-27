@@ -1,7 +1,7 @@
 # Contributing to stackpack-project-template
 
 For people and agents. Read this whole file before your first change here.
-Shared ARC rules (Plane, branches, PRs, secrets, release) are in the [ARC contribution handbook](https://github.com/arc-web/agent-config/blob/main/handbook/HANDBOOK.md). The repo standard that this file follows is [repo-standard.md](https://github.com/arc-web/agent-config/blob/main/handbook/repo-standard.md), and the full template set is in [STANDARD.md](https://github.com/arc-web/agent-config/blob/main/handbook/STANDARD.md).
+Shared ARC rules (Plane, branches, PRs, secrets, release) are in the [ARC contribution handbook](https://github.com/arc-web/agent-config/blob/main/handbook/HANDBOOK.md). The repo standard that this file follows is [rules for every arc-web repo](https://github.com/arc-web/agent-config/blob/main/CONTRIBUTING.md#rules-for-every-arc-web-repo), and the full template set is in [STANDARD.md](https://github.com/arc-web/agent-config/blob/main/handbook/STANDARD.md).
 
 ## At a glance
 
